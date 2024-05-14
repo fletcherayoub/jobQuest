@@ -91,7 +91,7 @@ export const postJob = catchAsyncError(async (req, res, next) => {
     const { id } = req.params;
     let job = await Job.findById(id);
     if (!job) {
-      return next(new ErrorHandler("OOPS! Job not found.", 404));
+      return next(new ErrorHandler("Sorry! Job not found.", 404));
     }
     job = await Job.findByIdAndUpdate(id, req.body, {
       new: true,
@@ -100,6 +100,7 @@ export const postJob = catchAsyncError(async (req, res, next) => {
     });
     res.status(200).json({
       success: true,
+      job,
       message: "Job Updated!",
     });
   });
@@ -114,7 +115,7 @@ export const postJob = catchAsyncError(async (req, res, next) => {
     const { id } = req.params;
     const job = await Job.findById(id);
     if (!job) {
-      return next(new ErrorHandler("OOPS! Job not found.", 404));
+      return next(new ErrorHandler("sorry! Job not found.", 404));
     }
     await job.deleteOne();
     res.status(200).json({
