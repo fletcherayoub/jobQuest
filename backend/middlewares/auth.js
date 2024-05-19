@@ -12,5 +12,7 @@ export const isAuthenticated = catchAsyncError(async (req, res, next) => {
     req.user = await User.findById(decoded.id);
 
     next();
+
+    
     
 });

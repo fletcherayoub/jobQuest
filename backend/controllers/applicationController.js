@@ -83,7 +83,7 @@ export const postApplication = catchAsyncError(async (req, res, next) => {
     message: " congratulation application Submitted!",
     application,
   });
-});
+}); 
 // get all applications
 export const employerGetAllApplications = catchAsyncError(
   async (req, res, next) => {

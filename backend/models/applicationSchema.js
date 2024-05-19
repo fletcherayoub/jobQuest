@@ -22,7 +22,7 @@ const applicationSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter your phone number"],
     },
-    adresse: {
+    address: {
         type: String,
         required: [true, "Please enter your adresse"],
     },
