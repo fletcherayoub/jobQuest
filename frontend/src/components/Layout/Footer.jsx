@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { Context } from "../../main";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
+  const { isAuthorized } = useContext(Context);
   return (
-    <div>
-        
-    </div>
-  )
-}
+    <footer className={isAuthorized ? "footerShow" : "footerHide"}>
+      <div>&copy; All Rights Reserved By JobQuest 2024</div>
+      <div>
+        <Link to={"https://facebook.com/profile.php?id=61559775999695"} target="_blank">
+          <FaFacebookF />
+        </Link>
+        <Link to={"https://www.google.com"} target="_blank">
+          <FaYoutube />
+        </Link>
+        <Link to={"https://www.google.com"} target="_blank">
+          <FaLinkedin />
+        </Link>
+        <Link to={"https://www.google.com"} target="_blank">
+          <RiInstagramFill />
+        </Link>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

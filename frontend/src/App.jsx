@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from 'react';
-import "./App.css";
-import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import './App.css';
+import {BrowserRouter as Router, Routes, Route,} from "react-router-dom";
 import {Context} from './main';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
@@ -23,7 +23,7 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("", {withCredentials: true});
+        const response = await axios.get("http://localhost:4000/api/v1/user/getUser", {withCredentials: true });
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (error) {
@@ -32,8 +32,6 @@ const App = () => {
     };
     fetchUser();
   }, [isAuthorized]);
-  
-  
   
   return (
     <>
@@ -50,6 +48,7 @@ const App = () => {
         <Route path="/application/:id" element={<Application />} />
         <Route path="/application/me" element={<MyApplications />} />
         <Route path="*" element={<NotFound />} />
+        
       </Routes>
       <Footer />
       <Toaster />
