@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <section className='page notfound'>
     <div className="content">
-      <img src="/notfound.png" alt='notfound'/>
+    <img src="/not.png" alt='notfound' className="w-[40rem] h-[40rem]"/>
       <Link to={'/'}>Go Home</Link>
     </div>
     </section>

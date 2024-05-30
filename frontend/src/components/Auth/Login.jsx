@@ -11,6 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [userName, setUserName] = useState("");
 
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
@@ -32,6 +33,7 @@ const Login = () => {
       setPassword("");
       setRole("");
       setIsAuthorized(true);
+      setUserName(data.user.name);
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -46,7 +48,7 @@ const Login = () => {
       <section className="authPage">
         <div className="container">
           <div className="header">
-            <img src="/JobQuestBlack.png" alt="logo" />
+            <img src="/JobQuestBlackG.png" alt="logo" />
             <h3>Login to your account</h3>
           </div>
           <form>
@@ -92,7 +94,7 @@ const Login = () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/login.png" alt="login" />
+          <img src="/4419038.jpg" alt="login" />
         </div>
       </section>
     </>

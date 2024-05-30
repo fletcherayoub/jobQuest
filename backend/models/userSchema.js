@@ -29,12 +29,14 @@ const userSchema = new mongoose.Schema({
         select: false
 
     },
+    
 
     role: {
         type: String,
         required: [true, "Please enter your role"],
         enum: ["Job Seeker", "Employer"],
     },
+
     createdAt:{
         type: Date,
         default: Date.now,

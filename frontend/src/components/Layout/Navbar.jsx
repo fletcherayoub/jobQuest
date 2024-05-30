@@ -30,7 +30,9 @@ const Navbar = () => {
     <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
       <div className="container">
         <div className="logo">
+          <Link to={"/"}>
           <img src="/JobQuestblanc.png" alt="logo" />
+          </Link>
         </div>
         <ul className={!show ? "menu" : "show-menu menu"}>
           <li>
@@ -66,9 +68,16 @@ const Navbar = () => {
           ) : (
             <></>
           )}
-
-          <button onClick={handleLogout}>LOGOUT</button>
+          <li>
+            <button onClick={handleLogout}>LOGOUT</button>
+          </li>
+          {user && (
+            <li className="username">
+              <span>Welcome, {user.name}</span>
+            </li>
+          )}
         </ul>
+        
         <div className="hamburger">
           <GiHamburgerMenu onClick={() => setShow(!show)} />
         </div>

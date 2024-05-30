@@ -16,10 +16,10 @@ export const postApplication = catchAsyncError(async (req, res, next) => {
   }
 
   const { resume } = req.files;
-  const allowedFormats = ["image/png", "image/jpeg", "image/webp",];
+  const allowedFormats = ["image/png", "image/jpeg", "image/webp", "image/pdf"];
   if (!allowedFormats.includes(resume.mimetype)) {
     return next(
-      new ErrorHandler("Invalid file type. Please upload a PNG file.", 400)
+      new ErrorHandler("Invalid file type. Please upload a PNG or pdffile.", 400)
     );
   }
   // upload resume to cloudinary

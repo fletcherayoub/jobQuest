@@ -10,9 +10,10 @@
 ::-webkit-scrollbar {
   display: none;
 }
-h1 {
+/* h1 {
   font-size: 4rem;
-}
+  @apply text-5xl;
+} */
 h2 {
   font-size: 3.4rem;
 }
@@ -96,7 +97,7 @@ p {
   font-size: 1.3rem;
 }
 .authPage .container .header img {
-  width: 300px;
+  width: 330px;
   height: 200px;
   margin: 0 auto;
 }
@@ -1298,6 +1299,7 @@ nav .hamburger {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .notfound .content a {
   font-size: 20px;
@@ -1348,4 +1350,10 @@ nav .hamburger {
   .resume-modal {
     z-index: 11;
   }
+}
+
+.username {
+  margin-left: 10px;
+  color: #fff;
+  font-weight: semibold;
 }

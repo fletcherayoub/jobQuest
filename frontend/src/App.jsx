@@ -46,7 +46,7 @@ const App = () => {
         <Route path="/job/me" element={<MyJobs />} />
         <Route path="/job/post" element={<PostJobs />} />
         <Route path="/application/:id" element={<Application />} />
-        <Route path="/application/me" element={<MyApplications />} />
+        <Route path="/applications/me" element={<MyApplications />} />
         <Route path="*" element={<NotFound />} />
         
       </Routes>
