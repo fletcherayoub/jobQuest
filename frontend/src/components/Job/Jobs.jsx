@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
-
-
+import { CCard, CCardBody, CCardTitle, CCardText, CCardImage, CButton } from "@coreui/react";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -35,18 +34,23 @@ const Jobs = () => {
         <h1>ALL AVAILABLE JOBS</h1>
         <div className="banner">
           {jobs.map((job) => {
-              return (
-                <>
-                <div className="card" key={job._id}>
-                  <p>{job.title}</p>
-                  <p>{job.category}</p>
-                  <p>{job.country}</p>
-                  <Link to={`/job/${job._id}`}>Job Details</Link>
-                  
-                </div>
-                </>
-              );
-            })}
+            return (
+              <CCard style={{ width: '16rem', height: '19rem'}} key={job._id}>
+                <CCardImage orientation="top" src="/heroS.jpg" />
+                <CCardBody>
+                  <CCardTitle>{job.title}</CCardTitle>
+                  <CCardText>
+                    {job.category} - {job.country}
+                  </CCardText>
+          
+
+                  <Link to={`/job/${job._id}`}>
+                    <CButton color="primary">Job Details</CButton>
+                  </Link>
+                </CCardBody>
+              </CCard>
+            );
+          })}
         </div>
       </div>
     </section>

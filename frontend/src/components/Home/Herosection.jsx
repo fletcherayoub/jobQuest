@@ -1,5 +1,6 @@
 import React from "react";
 import { FaBuilding, FaSuitcase, FaUsers, FaUserPlus } from "react-icons/fa";
+import EarthCanvas from "./EarthCanvas";
 
 const HeroSection = () => {
   const details = [
@@ -30,10 +31,10 @@ const HeroSection = () => {
   ];
   return (
     <>
-      <div className="heroSection">
+      <div className="heroSection bg-slate-800 text-slate-50">
         <div className="container">
           <div className="title">
-            <h1>Find your job</h1>
+            <h1>Find your job </h1>
             <h1 >and ensure success</h1>
             <p>
             JobQuest designed to connect job seekers with their dream careers.
@@ -44,13 +45,13 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="image">
-            <img src="/worldconnections.gif" alt="hero" />
+            <EarthCanvas />
           </div>
         </div>
         <div className="details">
           {details.map((element) => {
             return (
-              <div className="card" key={element.id}>
+              <div className="card " key={element.id}>
                 <div className="icon">{element.icon}</div>
                 <div className="content">
                   <p>{element.title}</p>

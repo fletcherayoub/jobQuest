@@ -2,6 +2,7 @@ import React from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdFindInPage } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
+import Card from "./Card";
 
 const HowItWorks = () => {
   return (
@@ -9,6 +10,7 @@ const HowItWorks = () => {
       <div className="howitworks">
         <div className="container">
           <h3>How It Works</h3>
+          <Card />
           <div className="banner">
             <div className="card">
               <FaUserPlus />
