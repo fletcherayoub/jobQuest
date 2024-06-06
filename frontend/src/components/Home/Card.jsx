@@ -4,22 +4,22 @@ const Card = () => {
   const cardsData = [
     { 
       category: 'CV', 
-      title: 'Perfect CV: 15 tips for your CV', 
+      title: 'Craft the Perfect CV', 
       imageUrl: '../../person2.jpg' 
     },
     { 
       category: 'APPLICATION', 
-      title: 'Mastering the interview skillfully', 
+      title: 'Master the Interview Process', 
       imageUrl: '../../person3.jpg' 
     },
     { 
       category: 'JOB ENTRY', 
-      title: 'Trial period: Use it correctly for yourself', 
+      title: 'Utilize the Trial Period Effectively', 
       imageUrl: '../../person4.jpg' 
     },
     { 
       category: 'CAREER', 
-      title: 'Decision making: 5 methods that help', 
+      title: 'Use Decision-Making Methods to Choose the Right Job', 
       imageUrl: '../../person5.jpg' 
     },
   ];

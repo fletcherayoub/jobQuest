@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../main";
+
 const PostJob = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -73,23 +74,27 @@ const PostJob = () => {
   }
 
   return (
-    <>
-      <div className="job_post page">
-        <div className="container">
-          <h3>POST NEW JOB</h3>
-          <form onSubmit={handleJobPost}>
-            <div className="wrapper">
-              <input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Job Title"
-              />
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                <option value="">Select Category</option>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form className="bg-white p-6 rounded shadow-md w-full max-w-lg" onSubmit={handleJobPost}>
+        <h2 className="text-2xl font-bold mb-4">Post New Job</h2>
+        <div className="mt-4">
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Job Title"
+          />
+        </div>
+        <div className="mt-4">
+          <select
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Category"
+           > 
+           <option value="">Select Category</option>
                 <option value="Graphics & Design">Graphics & Design</option>
                 <option value="Mobile App Development">Mobile App Development</option>
                 <option value="Frontend Web Development">Frontend Web Development</option>
@@ -111,79 +116,87 @@ const PostJob = () => {
                 <option value="Human Resources">Human Resources</option>
                 <option value="Game Development">Game Development</option>
                 <option value="Blockchain and Cryptocurrency">Blockchain and Cryptocurrency</option>
-
-
-    
-              </select>
-            </div>
-            <div className="wrapper">
-              <input
-                type="text"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                placeholder="Country"
-              />
-              <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="City"
-              />
-            </div>
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Location"
-            />
-            <div className="salary_wrapper">
-              <select
-                value={salaryType}
-                onChange={(e) => setSalaryType(e.target.value)}
-              >
-                <option value="default">Select Salary Type</option>
-                <option value="Fixed Salary">Fixed Salary</option>
-                <option value="Ranged Salary">Ranged Salary</option>
-              </select>
-              <div>
-                {salaryType === "default" ? (
-                  <p>Please provide Salary Type *</p>
-                ) : salaryType === "Fixed Salary" ? (
-                  <input
-                    type="number"
-                    placeholder="Enter Fixed Salary"
-                    value={fixedSalary}
-                    onChange={(e) => setFixedSalary(e.target.value)}
-                  />
-                ) : (
-                  <div className="ranged_salary">
-                    <input
-                      type="number"
-                      placeholder="Salary From"
-                      value={salaryFrom}
-                      onChange={(e) => setSalaryFrom(e.target.value)}
-                    />
-                    <input
-                      type="number"
-                      placeholder="Salary To"
-                      value={salaryTo}
-                      onChange={(e) => setSalaryTo(e.target.value)}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-            <textarea
-              rows="10"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Job Description"
-            />
-            <button type="submit">Create Job</button>
-          </form>
+          </select>
         </div>
-      </div>
-    </>
+        <div className="mt-4">
+          <textarea
+            rows="8"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Job Description"
+          />
+        </div>
+        
+        <div className="mt-4">
+          <input
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Country"
+          />
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1 mt-2"
+            placeholder="City"
+          />
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1 mt-2"
+            placeholder="Location"
+          />
+        </div>
+        <div className="mt-4">
+          <select
+            value={salaryType}
+            onChange={(e) => setSalaryType(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+          >
+            <option value="default">Select Salary Type</option>
+            <option value="Fixed Salary">Fixed Salary</option>
+            <option value="Ranged Salary">Ranged Salary</option>
+          </select>
+          {salaryType === "Fixed Salary" && (
+            <input
+              type="number"
+              value={fixedSalary}
+              onChange={(e) => setFixedSalary(e.target.value)}
+              className="w-full border border-gray-300 rounded px-2 py-1 mt-2"
+              placeholder="Fixed Salary"
+            />
+          )}
+          {salaryType === "Ranged Salary" && (
+            <div className="flex">
+              <input
+                type="number"
+                value={salaryFrom}
+                onChange={(e) => setSalaryFrom(e.target.value)}
+                className="w-1/2 border border-gray-300 rounded px-2 py-1 mt-2 mr-1"
+                placeholder="Salary From"
+              />
+              <input
+                type="number"
+                value={salaryTo}
+                onChange={(e) => setSalaryTo(e.target.value)}
+                className="w-1/2 border border-gray-300 rounded px-2 py-1 mt-2 ml-1"
+                placeholder="Salary To"
+              />
+            </div>
+          )}
+        </div>
+        <button
+          type="submit"
+          className="mt-6 bg-[#2d5649] text-white py-2 px-4 rounded hover:bg-green-950 transition"
+        >
+          Create Job
+        </button>
+      </form>
+    </div>
   );
 };
 

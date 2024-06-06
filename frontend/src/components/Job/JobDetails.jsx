@@ -31,37 +31,48 @@ const JobDetails = () => {
 
   return (
     <section className="jobDetail page py-10 bg-gray-100">
-      <div className="container mx-auto p-6 bg-white shadow-md rounded-md">
-        <h3 className="text-3xl font-semibold mb-6">Job Details</h3>
-        <div className="banner">
-          <p className="mb-4">
-            <strong>Title:</strong> <span className="text-gray-700">{job.title}</span>
-          </p>
-          <p className="mb-4">
-            <strong>Category:</strong> <span className="text-gray-700">{job.category}</span>
-          </p>
-          <p className="mb-4">
-            <strong>Location:</strong> <span className="text-gray-700">{job.city}, {job.country}</span>
-          </p>
-          <p className="mb-4">
-            <strong>Description:</strong> <span className="text-gray-700">{job.description}</span>
-          </p>
-          <p className="mb-4">
-            <strong>Job Posted On:</strong> <span className="text-gray-700">{job.jobPostedOn}</span>
-          </p>
-          <p className="mb-4">
-            <strong>Salary:</strong>{" "}
-            <span className="text-gray-700">
-              {job.fixedSalary ? job.fixedSalary : `${job.salaryFrom} - ${job.salaryTo}`}
-            </span>
-          </p>
+      <div className="container mx-auto p-8 bg-white shadow-lg rounded-lg">
+        <h3 className="text-4xl font-semibold mb-6 text-center">Job Details</h3>
+        <div className="border-t border-gray-200 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mb-4">
+              <h4 className="text-xl font-bold text-gray-900">Title:</h4>
+              <p className="text-gray-700">{job.title}</p>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-xl font-bold text-gray-900">Category:</h4>
+              <p className="text-gray-700">{job.category}</p>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-xl font-bold text-gray-900">Location:</h4>
+              <p className="text-gray-700">{job.city}, {job.country}</p>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-xl font-bold text-gray-900">Job Posted On:</h4>
+              <p className="text-gray-700">{new Date(job.jobPostedOn).toLocaleDateString()}</p>
+            </div>
+            <div className="mb-4 md:col-span-2">
+              <h4 className="text-xl font-bold text-gray-900">Description:</h4>
+              <p className="text-gray-700">{job.description}</p>
+            </div>
+            <div className="mb-4 md:col-span-2">
+              <h4 className="text-xl font-bold text-gray-900">Salary:</h4>
+              <p className="text-gray-700">
+                {job.fixedSalary ? job.fixedSalary : `${job.salaryFrom} - ${job.salaryTo}`}
+              </p>
+            </div>
+          </div>
           {user && user.role !== "Employer" && (
-            <Link
-              to={`/application/${job._id}`}
-              className="inline-block bg-blue-500 text-white px-6 py-2 rounded-md mt-4 hover:bg-blue-600 transition"
-            >
-              Apply Now
-            </Link>
+            <div className="text-center mt-6">
+              <Link
+                to={`/application/${job._id}`}
+                className="inline-block bg-[#2d5649] text-white px-6 py-3 rounded-lg hover:bg-green-950 transition"
+              >
+                Apply Now
+                
+              </Link>
+              
+            </div>
           )}
         </div>
       </div>

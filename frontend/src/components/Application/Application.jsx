@@ -15,7 +15,7 @@ const Application = () => {
 
   const navigateTo = useNavigate();
 
-  // Function to handle file input changes
+
   const handleFileChange = (event) => {
     const resume = event.target.files[0];
     setResume(resume);
@@ -44,6 +44,7 @@ const Application = () => {
           },
         }
       );
+      
       setName("");
       setEmail("");
       setCoverLetter("");
@@ -62,56 +63,85 @@ const Application = () => {
   }
 
   return (
-    <section className="application">
-      <div className="container">
-        <h3>Application Form</h3>
-        <form onSubmit={handleApplication}>
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Your Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Your Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <textarea
-            placeholder="CoverLetter..."
-            value={coverLetter}
-            onChange={(e) => setCoverLetter(e.target.value)}
-          />
-          <div>
-            <label
-              style={{ textAlign: "start", display: "block", fontSize: "20px" }}
-            >
-              Select Resume
-            </label>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form className="bg-white p-6 rounded shadow-md w-full max-w-lg" onSubmit={handleApplication}>
+        <h2 className="text-2xl font-bold mb-4">Job Application Form</h2>
+        <div>
+          <div className="mt-4">
+            <label className="block mb-1">Name</label>
             <input
-              type="file"
-              accept=".pdf, .jpg, .png"
-              onChange={handleFileChange}
-              style={{ width: "100%" }}
+              type="text"
+              name="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full border border-gray-300 rounded px-2 py-1"
+              placeholder="Enter First Name"
             />
           </div>
-          <button type="submit">Send Application</button>
-        </form>
-      </div>
-    </section>
+        </div>
+        <div className="mt-4">
+          <label className="block mb-1">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Your Email"
+          />
+        </div>
+
+        <div className="mt-4">
+          <label className="block mb-1">Number</label>
+          <input
+            type="number"
+            name="email"
+            value={phone}
+            onChange={(e)=> setPhone(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Your Phone Number"
+          
+          />
+        </div>
+        
+        <div className="mt-4">
+          <label className="block mb-1">Address</label>
+          <textarea
+            name="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="Enter Address"
+          />
+        </div>
+
+        
+          <label className="block mb-1">Cover Letter</label>
+          <textarea
+            name="coverLetter"
+            value={coverLetter}
+            onChange={(e) => setCoverLetter(e.target.value)}
+            className="w-full border border-gray-300 rounded px-2 py-1"
+            placeholder="CoverLetter..."
+          />
+          
+
+        <div className="mt-4">
+          <label className="block mb-1">Upload Your resume</label>
+          <input
+            type="file"
+            accept=".pdf, .jpg, .png"
+            onChange={handleFileChange}
+            style={{ width: "100%" }}
+            className="w-full"
+          />
+        </div>
+        <button type="submit" className="mt-6 bg-[#2d5649] text-white py-2 px-4 rounded hover:bg-green-950 transition">
+          Apply Now
+        </button>
+
+      </form>
+    </div>
   );
 };
 
