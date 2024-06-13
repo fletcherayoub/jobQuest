@@ -48,7 +48,7 @@ const Navbar = () => {
           <li>
             <Link to={"/applications/me"} onClick={() => setShow(false)}>
               {user && user.role === "Employer"
-                ? "APPLICANT'S APPLICATIONS"
+                ? "APPLICATIONS"
                 : "MY APPLICATIONS"}
             </Link>
           </li>

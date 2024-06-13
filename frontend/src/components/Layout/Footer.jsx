@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex justify-between flex-wrap">
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
             <h2 className="text-lg font-semibold mb-2">JobQuest</h2>
-            <p className="sm">&copy; All Rights Reserved By JobQuest 2024</p>
+            <p >&copy; All Rights Reserved By JobQuest 2024</p>
           </div>
 
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
@@ -27,10 +27,10 @@ const Footer = () => {
           </div>
 
           <div className="w-full md:w-1/4 mb-4 md:mb-0">
-            <h2 className="text-lg font-semibold mb-2">Contact Information</h2>
-            <p className="mb-1">123 JobQuest Street</p>
-            <p className="mb-1">City, Country 12345</p>
-            <p className="mb-1">Email: info@jobquest.com</p>
+            <h2 className="text-xl font-semibold mb-3">Contact Information</h2>
+            <p className=" mb-1">123 JobQuest Street</p>
+            <p className=" mb-1">City, Country 12345</p>
+            <p className=" mb-1">Email: info@jobquest.com</p>
             <p>Phone: +123 456 7890</p>
           </div>
 

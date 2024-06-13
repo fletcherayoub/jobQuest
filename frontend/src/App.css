@@ -444,7 +444,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 35px;
+  gap: 30px;
   padding: 20px 0;
 }
 .categories .banner .card {

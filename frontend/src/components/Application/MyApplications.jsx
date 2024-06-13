@@ -163,6 +163,7 @@ const EmployerCard = ({ element, openModal }) => {
     <>
       <div className="job_seeker_card">
         <div className="detail">
+          
           <p>
             <span>Name:</span> {element.name}
           </p>
